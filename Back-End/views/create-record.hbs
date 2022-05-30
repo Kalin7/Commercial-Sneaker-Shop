@@ -1,0 +1,73 @@
+<style>
+    .admin-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+    }
+    div {
+        padding: 10x;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    input,
+    select,
+    button {
+        width: 300px;
+        height: 30px;
+    }
+
+</style>
+<section class="admin-section">
+    <div>
+        <h2>Main Product Details</h2>
+        <form action="/admin/create-record" method="post">
+            <label>Colection</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="child">Child</option>
+            </select>
+            <label>Brand</label>
+            <input type="text" name="brand" />
+            <label>Model</label>
+            <input type="text" name="model" />
+            <label>Price</label>
+            <input type="text" name="price" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h2>Additional Information</h2>
+    <form action="/admin/create-record" method="post">
+        <label>Size</label>
+        <input type="text" name="size" />
+        <label>Color</label>
+        <input type="text" name="color" />
+        <label>Quantity</label>
+        <input type="number" name="quantity" />
+        <label>Product Images Url</label>
+        <input type="text" name="imgUrl">
+        <button type="submit">Submit</button>
+    </form>
+    <form>
+        <button>Clear</button>
+    </form>
+    </div>
+    <div class="final-container">
+    <h2>Create Record</h2>
+    <form class="final-action" action="/admin/create-record" method="post">
+        <label>Yes</label>
+        <input type="checkbox" name="yes"/>
+        <button>Submit</button>
+    </form>
+</div>
+</section>
+<div>
+    <a href="/admin/get-all-records">Records Catalog</a>
+</div>

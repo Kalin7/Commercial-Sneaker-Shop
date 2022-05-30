@@ -1,0 +1,61 @@
+<style>
+    .admin-section {
+        width: 100%;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .records-container {
+        padding: 20px 20px;
+    }
+
+    .records-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .records-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid grey;
+        padding: 10px;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 10px;
+        color: black;
+        text-align: center;
+        background-color: gray; 
+    }
+</style>
+
+<section class="admin-section">
+    <div class="records-container">
+        <ul class="records-list">
+            {{#each records}}
+            <li class="records-item">
+                <p>Colection: <span>{{gender}}</span></p>
+                <p>Brand: <span>{{brand}}</span></p>
+                <p>Model: <span>{{model}}</span></p>
+                <p>Price: <span>{{price}}</spanlv.</span></p>
+                <a href="/record/{{_id}}/details">Details</a>
+            </li>
+            {{else}}
+            <li>
+                No records found
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+<div>
+    <a href="/admin/create-record">Create Record</a>
+</div>

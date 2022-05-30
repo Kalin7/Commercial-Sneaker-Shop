@@ -1,0 +1,31 @@
+<section class="register-section">
+    <div class="animated-register">
+    <div class="register-title">
+        <h2>Register Form</h2>
+    </div>
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label class="register-form--label">First Name</label>
+        <input class="register-form--item" type="text" formControlName="firstName" placeholder="Enter your first name">
+        <p class="register-error" *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">Please enter a valid name</p>
+        <label class="register-form--label">Last Name</label>
+        <input class="register-form--item" type="text" formControlName="lastName" placeholder="Enter your last name">
+        <p class="register-error" *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">Please enter a valid name</p>
+        <label class="register-form--label">Email</label>
+        <input class="register-form--item" type="email" formControlName="email"  placeholder="Enter email here"/>
+        <p class="register-error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">Please enter a valid email</p>
+        <label>Phone Number</label>
+        <input class="register-form--item" type="text" formControlName="phone" placeholder="Enter your phone number">
+        <label class="register-form--label">Password</label>
+        <input class="register-form--item" type="password" formControlName="password"  placeholder="Enter password here"/>
+        <p class="register-error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">Please enter a valid password</p>
+        <label class="register-form--label">Repeat Password</label>
+        <input class="register-form--item" type="password" formControlName="rePass"  placeholder="Enter password here"/>
+        <p class="register-error" 
+            *ngIf="registerForm.get('rePass')?.touched && registerForm.get('rePass')?.value !== registerForm.get('password')?.value">
+            Password does not match
+        </p>
+        <button type="submit" [disabled]="!registerForm.valid">Sign up</button>
+    </form>
+    </div>
+</section>
+

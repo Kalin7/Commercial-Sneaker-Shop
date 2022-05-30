@@ -1,0 +1,88 @@
+
+.login-section {
+    width: 100%;
+    color: white;
+    padding: 20px 0 320px 0;
+    background-color: rgb(240, 238, 238);
+}
+
+.login-title {
+    width: 25%;
+    margin: 0 auto;
+}
+
+h2 {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.login-form {
+    width: 100%;
+    margin: 80px auto;
+    background-color: #f3a22c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
+    overflow: hidden;
+}
+
+.login-form--label {
+    width: 100%;
+    margin-top: 20px;
+}
+.login-form--item {
+    width: 99%;
+    height: 35px;
+    border-radius: 15px;
+}
+
+button {
+    width: 400px;
+    height: 35px;
+    background-color: white;
+    color: black;
+    margin: 20px 0 20px 0;
+}
+
+button:disabled {
+    background-color: lightgray;
+}
+
+.login-error {
+    width: 300px;
+    border-radius: 15px;
+    background-color: red;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: -20px;
+}
+
+.animated-login {
+    position: relative;
+    width: 700px;
+    animation-name: transformation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes transformation {
+    from {
+        left: 20px; 
+        opacity: 0; 
+        background-color: white;
+        border-radius: 50%;
+    }
+    to {
+        left: 750px; 
+        opacity: 1; 
+        background-color: #e7c598;;
+        border-radius: 0px;
+    }
+}

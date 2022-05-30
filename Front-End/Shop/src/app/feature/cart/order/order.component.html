@@ -1,0 +1,41 @@
+<div class="order-form">
+    <h3>Please fill order form</h3>
+    <form action="" method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="">First name</label>
+            <input type="text" formControlName="firstName" placeholder=" Enter your first name" />
+        </div>
+        <p *ngIf="form.get('firstName')!.invalid && form.get('firstName')!.touched">Field is required</p>
+        <div>
+            <label for="">Last name</label>
+            <input type="text" formControlName="lastName" placeholder=" Enter your last name" />
+        </div>
+        <p *ngIf="form.get('lastName')!.invalid && form.get('lastName')!.touched">Field is required</p>
+        <div>
+            <label for="">Email</label>
+            <input type="email" formControlName="email" placeholder="Enter your email address" />
+            
+        </div>
+        <p *ngIf="form.get('email')!.invalid && form.get('email')!.touched">Field is required</p>
+        <div>
+            <label for="">Phone number</label>
+            <input type="text" formControlName="phone" placeholder="Enter your phone number" />
+           
+        </div>
+        <p *ngIf="form.get('phone')!.invalid && form.get('phone')!.touched">Field is required</p>
+        <div>
+            <label for="">Discount code</label>
+            <input type="text" formControlName="discount" placeholder="Enter your discount code (Not required)" />
+        </div>
+        <button type="submit" [disabled]="form.invalid">Send</button>
+    </form>
+
+    <div class="message" *ngIf="message">
+        <p>{{message}}</p>
+        <a routerLink="/home">Close</a>
+    </div>
+
+    <div class="error" *ngIf="errors">
+        <p *ngFor="let error in errors">{{error}}</p>
+    </div>
+</div>

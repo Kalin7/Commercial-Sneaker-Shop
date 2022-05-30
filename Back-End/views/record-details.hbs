@@ -1,0 +1,85 @@
+<style>
+    .record-section {
+        width: 100%;
+    }
+    .record-container {
+        width: 80%;
+        margin: 10px auto;
+        border: 1px solid black;
+    }
+    .record-details--top {
+        width: 50%;
+        margin: 10px auto;
+        border: 1px solid black;
+        text-align: center;
+    }
+    .record-details--bottom {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    img {
+        width: 200px;
+        height: 200px;
+    }
+    a {
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+        width: 50px;
+        color: black;
+        background-color: grey;
+        text-align: center;
+    }
+    span {
+        text-transform: uppercase;
+    }
+</style>
+<section class="record-section">
+    <div class="record-container">
+        {{#with record}}
+         
+        <div>
+            <div class="record-details--top">
+                <p>Colection: <span>{{gender}}</span></p>
+                <p>Brand: <span>{{brand}}</span></p>
+                <p>Model: <span>{{model}}</span></p>
+                <p>Price: <span>{{price}}</spanlv.</span></p>
+                <p>ID: <span>{{_id}}</span></p>
+            </div>
+           
+            {{#each info}}
+            <div class="record-details--bottom">
+                <div>
+                    <p>Size: <span>{{size}}</span></p>
+                    <p>Color: <span>{{color}}</span></p>
+                    <p>Quantity: <span>{{quantity}}</span></p>
+                </div>
+                {{#each images}}
+                <img src="{{imgUrl}}" alt="">
+                {{/each}}
+                <div>
+                    
+                    <div>
+                        <a href="/edit/{{../_id}}/size/{{size}}">Edit</a>
+                    </div>
+                    <div>
+                        <a href="/delete/{{../_id}}/size/{{size}}">Delete</a>
+                    </div>
+                   
+               </div>                
+            </div>
+            {{/each}}
+           
+        </div>
+        {{/with}}
+    </div>
+</section>
+<div>
+    <a href="/admin/get-all-records">Records Catalog</a>
+</div>
+<div>
+    <a href="/admin/create-record">Create Record</a>
+</div>

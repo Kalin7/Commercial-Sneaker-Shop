@@ -1,0 +1,31 @@
+<section class="product-details">
+    <div class="product-card" *ngIf="product">
+        <div>
+            <img class="product-card--img" src="{{product.info[0].images[0].imgUrl}}" alt="{{product.model}}">
+            <div class="product-card--small-img">
+                <img class="small-img" *ngFor="let image of product.info[0].images" src="{{image.imgUrl}}" alt="" />
+            </div>
+            <div class="product-card--info">
+                <p class="brand">{{product.brand}}</p>
+                <p class="model">{{product.model}}</p>
+                <p class="gender">{{product.gender}} sneakers</p>
+                <p class="price">{{product.price}} BGN.</p>
+                <p class="color">Available Colors:
+                    <span  
+                    *ngFor="let item of product.info" 
+                    [ngStyle]="{'background-color': item.color}" (click)="getColorValue($event)">
+                    {{item.color}}
+                    </span>
+                </p>
+                
+                <select (change)="getSizeValue($event)">
+                    <option value="" disabled selected>Choose a size</option>
+                    <option value="{{item.size}}" *ngFor="let item of product.info">{{item.size}}</option>
+                </select>
+            
+            </div>
+            <button (click)="addToCart()">ADD TO CART</button>
+        </div>
+    </div>
+    
+</section>

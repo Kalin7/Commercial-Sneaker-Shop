@@ -1,0 +1,33 @@
+<section class="cart" *ngIf="addedProducts.length > 0; else noContent">
+    <div class="cart-container">
+        <h3>Cart</h3>
+        <div class="product-card" *ngFor="let product of addedProducts">
+            <div class="product-details">    
+                <img src="{{product.info[0].images[0].imgUrl}}" alt="{{product.model}}">
+                <div class="product-details--description">
+                    <p class="model">{{product.model}}</p>
+                    <p class="size">Size: <span>{{product.size}}</span></p>
+                    <a type="button" id="{{product._id}}" class="remove-product" (click)="removeProduct($event, product.size)">Remove</a>
+                </div>
+            </div>
+            <div class="price">
+                <p>Price: {{product.price}} BGN.</p>
+            </div>
+        </div>
+        <div class="total-price">
+            <p>Total: {{totalPrice}} BGN.</p>
+        </div>
+    </div>
+    <div class="finish-order">
+        <button (click)="onSubmit()">Submit</button>
+    </div>
+</section>
+<section class="oreder" *ngIf="submited">
+    <app-order [products]="productId" (submited)="onSubmit()"></app-order>
+</section>
+<ng-template #noContent>
+    <div class="empty-cart">
+        <span>Cart is Empty</span>
+        <fa-icon [icon]="['fas', 'cart-plus']"></fa-icon>
+    </div>
+</ng-template>

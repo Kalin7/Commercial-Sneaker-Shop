@@ -1,0 +1,76 @@
+@import url('./css/mobile-min-360.css');
+
+/* .home-section {
+    width: 100%;
+    position: relative;
+    padding: 20px 20px;
+}
+
+.baner-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.baner {
+    width: 80%;
+    height: 500px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%)
+}
+
+.products {
+    display: flex;
+    gap: 20px;
+}
+
+.product-list {
+    list-style: none;
+}
+
+.product-list--items {
+    width: 250px;
+    height: 650px;
+    background-color: white;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.product-list--items img {
+    width: 248px;
+    height: 248px;
+}
+.product-list--items p {
+    position: relative;
+    top: -30px;
+    left: 15px;
+}
+
+.small-images {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.small-images img {
+    width: 85px;
+    height: 75px;
+}
+
+.size-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    position: relative;
+    top: -25px;
+}
+
+.size-list li {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #d3d3d3;
+    padding-left: 15px;
+} */

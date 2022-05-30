@@ -1,0 +1,63 @@
+<section class="home-section">
+    <div class="baner-container">
+        <img class="baner" src="../../../assets/images/baner.jpg" alt="Comersial" *ngIf="!isMobile">
+        <div class="mobile-360" *ngIf="isMobile">
+            <img class="baner" src="../../../assets/images/first-half.jpg" alt="Comersial">
+            <img class="baner" src="../../../assets/images/half-baner.jpg" alt="Comersial">
+        </div>
+        <div class="buy-now">
+            <a href="">Buy Now</a>
+        </div>
+    </div>
+    <div class="discount">
+        <img src="../../../assets/images/discount.jpg" alt="Take 5% discount">
+        <div class="form-container">
+            <form class="form" action="" method="post" [formGroup]="form" (ngSubmit)="registerDiscount()">
+                <input type="email" placeholder="Enter your email address" formControlName="email">
+                <button type="submit">Submit</button>
+            </form>
+            <p>*We will receive code for the discount on your email</p>
+        </div>
+    </div>
+    <div class="product-container" *ngIf="products">
+        <div class="product-container--header">
+            <h2>New Products</h2>
+            <div class="product-container--controlers">
+                <mat-icon aria-hidden="false" (click)="prevProduct()">arrow_back_ios</mat-icon>
+                <mat-icon aria-hidden="false" (click)="nextProduct()">arrow_forward_ios</mat-icon>
+            </div>
+        </div>
+        <div class="products">
+            <div class="product-card"> 
+                <div id="" 
+                    class="product-card--items"
+                    *ngFor="let product of products"   
+                    (mouseover)="onHover(currentProduct=product._id)" 
+                    (mouseleave)="onLeave()">
+                    <a routerLink="/product/{{currentProduct}}/details"><img src="{{product.info[0].images[0].imgUrl}}" alt=""></a>
+                    <p class="product-model">{{product.model}}</p>
+                    <p class="product-colection" *ngIf="!isMobile">{{product.gender}}</p>
+                    <p class="product-price">{{product.price}} lv.</p>
+                    <div *ngIf="product.hover && !isMobile" class="small-images" >
+                        <div *ngFor="let item of product.info[0].images">
+                            <img src="{{item.imgUrl}}" alt="">
+                        </div>
+                    </div>
+                    <div class="product-size" *ngIf="!product.hover || isMobile">
+                        <p>Available Sizes:</p>
+                        <div class="size-list">
+                            <span *ngFor="let item of product.info">{{item.size}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brands">
+        <ul class="brands-list">
+            <li class="brands-list--item" *ngFor="let brand of brands">
+                <a href="">{{brand}}</a>
+            </li>
+        </ul>
+    </div>
+</section>
