@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/core/service/cart.service';
@@ -12,6 +12,7 @@ import { OrderService } from 'src/app/core/service/order.service';
 export class OrderComponent implements OnInit {
   
   @Input() products: string[] = [];
+  @Input() total: number = 0;
 
   form = new FormGroup({
     firstName: new FormControl(null, Validators.required),
@@ -24,6 +25,8 @@ export class OrderComponent implements OnInit {
   order!: {};
   message?: string = undefined;
   errors?: {};
+  isDiscount?: boolean = false;
+
   constructor(
     private sOrder: OrderService,
     private sCart: CartService,
@@ -45,19 +48,26 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  getPrice () {
+    if (this.form.get('discount')?.value) {
+      (this.total -= this.total * 0.05).toFixed(2);
+    }
+  }
+
   onSubmit() {
     this.order = this.createOrder();
     this.sOrder.sendClientOrder(this.order).subscribe({
       next: (res) => {
         this.message = res.msg;
+        this.isDiscount = res.status;
       },
       error: (err) => {
         this.errors = err;
       }
     });
+
+    this.getPrice();
     this.form.reset();
     this.sCart.selectedProducts = [];
 
-  } 
-
-}
+  }
