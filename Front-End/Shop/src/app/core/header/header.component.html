@@ -11,9 +11,12 @@
                 <div class="nav search">
                     <a routerLink="/search"><mat-icon aria-hidden="false">search</mat-icon></a>
                 </div>
-                <div class="nav auth-container">
+                <div class="nav auth-container" *ngIf="!isLoggedIn">
                     <a routerLink="/auth/login">Login</a>
                     <a routerLink="/auth/register">Register</a>
+                </div>
+                <div class="logout" *ngIf="isLoggedIn">
+                    <mat-icon aria-hidden="false" (click)="onLogout()">logout</mat-icon>
                 </div>
                 <div class="nav user-basket">
                     <a routerLink="/cart">
