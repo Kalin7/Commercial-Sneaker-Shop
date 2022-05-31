@@ -15,7 +15,9 @@ function postOrder() {
             }
 
             const created = await createOrder(order);
-            res.json({msg: `Your oreder was succsessfuly created! You have `});
+            const d = res.locals.discount;
+            res.json({msg: `Your oreder was succsessfuly created! 
+                ${d.status? 'You have discount': 'You does not have discount'}`, status: d.status});
         }catch (err) {
             const errorMessage = errorHandler(err);
             res.json({msg: errorMessage});
