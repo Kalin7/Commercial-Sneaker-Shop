@@ -16,6 +16,11 @@ export class UserService {
   registerNewUser(user: IUser): Observable<string> {
     return this.http.post<string>(`${this.url}/register`, user);
   }
+  
+   userLogin(login: ILogingIn): Observable<string> {
+    console.log(login)
+    return this.http.post<string>(`${this.url}/login`, login);
+  }
 
   registerClientDiscountRequest(email: string): Observable<any> {
     return this.http.post<any>(`${this.url}/order/discount-request`, {email: email});
