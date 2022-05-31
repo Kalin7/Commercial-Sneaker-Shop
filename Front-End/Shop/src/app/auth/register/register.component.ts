@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/core/interfaces';
+import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +12,14 @@ import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractC
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  user!: IUser;
+  errors: string[] = [];
+
+  constructor(
+    private fb: FormBuilder,
+    private sUser: UserService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -39,9 +49,33 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    console.log(this.registerForm.value);
+  getUserData() {
+    return {
+      firstName: this.registerForm.get('firstName')!.value,
+      lastName: this.registerForm.get('lastName')!.value,
+      email: this.registerForm.get('email')!.value,
+      password: this.registerForm.get('password')!.value,
+      repeatPass: this.registerForm.get('rePass')!.value,
+      phone: this.registerForm.get('phone')!.value,
+    }
   }
 
 
+  onSubmit(): void {
+    this.user = this.getUserData();
+    this.sUser.registerNewUser(this.user).subscribe({
+      next: (res) => {
+        sessionStorage.setItem('token', res);
+        const t = sessionStorage.getItem('token');
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        this.errors = err.error.msg;
+      }
+    });
+
+    this.registerForm.reset();
+  }
+
 }
+
