@@ -84,6 +84,12 @@
         animation-timing-function: linear;
         animation-fill-mode: forwards;
     }
+  
+     .error {
+        width: var(--width);
+        color: var(--color);
+        background-color: red;
+     }
     
     @keyframes transformation {
         from {
