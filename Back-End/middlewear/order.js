@@ -8,9 +8,9 @@ function isOrderHaveDiscount() {
         const prods = req.body.products;
         const products = [];
      
-        prods.map((p) => products.push(Promise.all([Sneaker.find({_id: p})]))) 
+        
 
-        console.log(products);
+       
         next();
     }
 }
