@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/core/interfaces';
+import { StorageService } from 'src/app/core/service/storage.service';
 import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private sUser: UserService,
+    private sStorage: StorageService,
     private router: Router
     ) { }
 
@@ -65,8 +67,7 @@ export class RegisterComponent implements OnInit {
     this.user = this.getUserData();
     this.sUser.registerNewUser(this.user).subscribe({
       next: (res) => {
-        sessionStorage.setItem('token', res);
-        const t = sessionStorage.getItem('token');
+        this.sStorage.setStorage(res);
         this.router.navigate(['/home']);
       },
       error: (err) => {
@@ -78,4 +79,5 @@ export class RegisterComponent implements OnInit {
   }
 
 }
+
 
