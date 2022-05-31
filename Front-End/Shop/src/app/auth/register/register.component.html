@@ -27,5 +27,8 @@
         <button type="submit" [disabled]="!registerForm.valid">Sign up</button>
     </form>
     </div>
+    <div class="error" *ngIf="errors">
+        <p>{{errors}}</p>
+    </div>
 </section>
 
