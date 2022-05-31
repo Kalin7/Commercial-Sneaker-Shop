@@ -5,7 +5,7 @@ function checkData(data) {
     if (entries.includes(false)) {
         throw new Error('Invalid data entry');
     } 
-    if (data.password !== data.repeatPass) {
+     if (data.repeatPass && data.password !== data.repeatPass) {
         throw new Error('Password does not match');
     }
     
