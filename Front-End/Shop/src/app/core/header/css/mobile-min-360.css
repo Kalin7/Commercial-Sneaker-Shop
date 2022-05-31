@@ -48,9 +48,7 @@
         justify-content: space-around;
     }
 
-    .nav {
-        padding: 5px;
-    }
+   
    
     .auth-container {
         display: flex;
@@ -58,11 +56,20 @@
         align-items: center;
         gap: 10px;
     }
+  
+    .logout {
+        cursor: pointer;
+    }
 
     mat-icon {
         font-size: 36px;
     }
 
+    
+    .basket {
+        margin-top: 20px;
+    }
+  
     .user-basket .item {
         display: none;
     }
