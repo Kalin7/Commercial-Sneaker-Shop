@@ -17,3 +17,12 @@ export interface IProduct{
     ]
     hover: boolean   
 }
+
+export interface IUser {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    repeatPass: string;
+    phone: string;
+}
