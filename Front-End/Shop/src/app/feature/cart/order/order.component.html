@@ -32,6 +32,7 @@
 
     <div class="message" *ngIf="message">
         <p>{{message}}</p>
+        <p *ngIf="isDiscount">Total Price: {{total}}</p>
         <a routerLink="/home">Close</a>
     </div>
 
