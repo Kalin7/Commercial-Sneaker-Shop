@@ -1,0 +1,20 @@
+<div class="order-form">
+    <h3>Discount code</h3>
+    <form action="" method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="">Discount code</label>
+            <input type="text" formControlName="discount" placeholder="Enter your discount code (Not required)" />
+        </div>
+        <button type="submit">Send</button>
+    </form>
+
+    <div class="message" *ngIf="message">
+        <p>{{message}}</p>
+        <p>Total Price: {{price}}</p>
+        <a routerLink="/home">Close</a>
+    </div>
+
+    <div class="error">
+        <p></p>
+    </div>
+</div>
