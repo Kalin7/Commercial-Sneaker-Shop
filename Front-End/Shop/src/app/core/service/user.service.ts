@@ -25,4 +25,8 @@ export class UserService {
   registerClientDiscountRequest(email: string): Observable<any> {
     return this.http.post<any>(`${this.url}/order/discount-request`, {email: email});
   }
+  
+   getClientById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.url}/${id}`);
+  }
 }
