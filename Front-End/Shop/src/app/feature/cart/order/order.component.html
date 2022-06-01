@@ -1,4 +1,4 @@
-<div class="order-form">
+<div class="order-form" *ngIf="isLoggedIn == undefined else userDiscount">
     <h3>Please fill order form</h3>
     <form action="" method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
@@ -40,3 +40,6 @@
         <p *ngFor="let error in errors">{{error}}</p>
     </div>
 </div>
+<ng-template #userDiscount>
+    <app-order-by-registered-user [userId]="isLoggedIn" [selectedProducts]="products" [price]="total"></app-order-by-registered-user>
+</ng-template>
