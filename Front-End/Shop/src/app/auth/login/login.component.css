@@ -1,1 +1,106 @@
+.register-section {
+    --width: calc(100% - 5px);
+    --radius: 15px;
+    --color: #000;
+    --height: 35px;
+}
 
+.register-section {
+    width: 100%;
+    color: white;
+    padding: 20px 0;
+    background-color: rgb(240, 238, 238);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
+}
+
+.register-title {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: var(--color);
+}
+
+.register-form {
+    width: clamp(200px, 100%, 500px);
+    margin: 80px auto;
+    background-color: #f3a22c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form--label {
+    width: var(--width);
+    margin-top: 20px;
+}
+
+.register-form--item {
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--radius);
+}
+
+button {
+    width: var(--width);
+    height: var(--height);
+    margin: 20px 0 20px 0;
+    background-color: white;
+    color: var(--color);
+    font-weight: 600;
+    border-radius: var(--radius);
+}
+
+button:disabled {
+    background-color: lightgray;
+}
+
+.register-error {
+    width: 90%;
+    border-radius: var(--radius);
+    background-color: red;
+    color: var(--color);
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    top: -20px;
+}
+
+.animated-register {
+    position: relative;
+    width: clamp(200px, 100%, 50%);
+    overflow: hidden;
+    animation-name: transformation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.error {
+    width: var(--width);
+    color: var(--color);
+    background-color: red;
+}
+
+@keyframes transformation {
+    from {
+        left: 20px; 
+        opacity: 0; 
+        background-color: white;
+        border-radius: 50%;
+    }
+    to {
+        left: 50%;
+        transform: translate(-50%); 
+        opacity: 1; 
+        background-color: #e7c598;;
+        border-radius: var(--radius);
+    }
+}
