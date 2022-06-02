@@ -1,1 +1,53 @@
 @import url('./css/mobile-min-360.css');
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 1vw, 20px);
+}
+
+h3 {
+    color: #6d6e71;
+}
+
+.footer {
+    background-color: #242021;
+    padding: 10px;
+}
+
+.navbar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 25px 25px;
+}
+
+.wrapper {
+    width: 100%;
+}
+.navbar-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.navbar-social--icons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+fa-icon {
+    flex: 0 0 clamp(15px, 2vw, 25px);
+    border-radius: 50%;
+    background-color: #bcbec0;
+    font-size: clamp(12px, 2vw, 18px);
+    text-align: center;
+    color: #231f20;
+    padding: 10px;
+}
