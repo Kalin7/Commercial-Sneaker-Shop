@@ -1,1 +1,95 @@
 @import url('./css/mobile-min-360.css');
+
+.product-details {
+    max-width: 70%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.product-card {
+    max-width: clamp(250px, 100%, 99%);
+    display: flex;
+}
+
+.card-wrapper,
+.product-description {
+    max-width: clamp(250px, 100%, 50%);
+}
+
+.product-card--img {
+    width: clamp(200px, 100%, 500px);
+}
+
+.product-card--small-img {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    max-width: clamp(200px, 100%, 500px);
+    
+}
+
+.small-img {
+    width: 75px;
+    height: 75px;
+    border: solid 1px #eee;
+}
+
+.product-card--info {
+    width: clamp(200px, 100%, 500px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #6d6e71;
+    line-height: 0.5;
+}
+
+.model,
+.price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+.gender {
+    text-transform: capitalize;
+}
+
+.color {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.color span {
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select, button{
+    width: clamp(200px, 100%, 500px);
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    
+}
+
+button {
+    background-color: #3e3c3e;
+    color: #fff;
+    font-weight: 600;
+}
+
+.product-description h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: clamp(14px, 2vw, 24px);
+}
+
+.description-content {
+    padding: 20px;
+    color: #6d6e71;
+    font-style: italic;
+    font-size: clamp(14px, 2vw, 24px);
+}
