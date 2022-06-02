@@ -1,11 +1,13 @@
-.register-section {
+.login-section {
     --width: calc(100% - 5px);
+    --height: 35px;
     --radius: 15px;
     --color: #000;
-    --height: 35px;
+    
 }
 
-.register-section {
+
+.login-section {
     width: 100%;
     color: white;
     padding: 20px 0;
@@ -14,7 +16,7 @@
     font-size: larger;
 }
 
-.register-title {
+.login-title {
     width: 90%;
     margin: 0 auto;
     text-align: center;
@@ -24,10 +26,10 @@ h2 {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: var(--color);
+    color: var(--color)
 }
 
-.register-form {
+.login-form {
     width: clamp(200px, 100%, 500px);
     margin: 80px auto;
     background-color: #f3a22c;
@@ -37,15 +39,15 @@ h2 {
     align-items: center;
 }
 
-.register-form--label {
+.login-form--label {
     width: var(--width);
     margin-top: 20px;
 }
 
-.register-form--item {
+.login-form--item {
     width: var(--width);
     height: var(--height);
-    border-radius: var(--radius);
+    border-radius: var(--radius)
 }
 
 button {
@@ -62,7 +64,7 @@ button:disabled {
     background-color: lightgray;
 }
 
-.register-error {
+.login-error {
     width: 90%;
     border-radius: var(--radius);
     background-color: red;
@@ -73,7 +75,7 @@ button:disabled {
     top: -20px;
 }
 
-.animated-register {
+.animated-login {
     position: relative;
     width: clamp(200px, 100%, 50%);
     overflow: hidden;
@@ -81,12 +83,6 @@ button:disabled {
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-}
-
-.error {
-    width: var(--width);
-    color: var(--color);
-    background-color: red;
 }
 
 @keyframes transformation {
