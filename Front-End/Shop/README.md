@@ -35,6 +35,6 @@ http://lockalhost:3000/user/order
 http://lockalhost:3000/user/ordder/discount-request
 http://lockalhost:3000/user/:id
 
-http:localhost/4200/home -> http://lockalhost:3000/records
-http:localhost/4200/product && http:localhost/4200/cart -> -> http://lockalhost:3000/record/:id/details
+http://localhost/4200/home -> http://lockalhost:3000/records
+http://localhost/4200/product && http://localhost/4200/cart -> -> http://lockalhost:3000/record/:id/details
 
