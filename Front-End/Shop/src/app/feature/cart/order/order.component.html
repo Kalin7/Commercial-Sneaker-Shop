@@ -1,33 +1,35 @@
 <div class="order-form" *ngIf="isLoggedIn == undefined else userDiscount">
     <h3>Please fill order form</h3>
     <form action="" method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div>
+        <div class="area-1">
             <label for="">First name</label>
             <input type="text" formControlName="firstName" placeholder=" Enter your first name" />
+            <p *ngIf="form.get('firstName')!.invalid && form.get('firstName')!.touched">Field is required</p>
         </div>
-        <p *ngIf="form.get('firstName')!.invalid && form.get('firstName')!.touched">Field is required</p>
-        <div>
+        
+        <div class="area-2">
             <label for="">Last name</label>
             <input type="text" formControlName="lastName" placeholder=" Enter your last name" />
+            <p *ngIf="form.get('lastName')!.invalid && form.get('lastName')!.touched">Field is required</p>
         </div>
-        <p *ngIf="form.get('lastName')!.invalid && form.get('lastName')!.touched">Field is required</p>
-        <div>
+        
+        <div class="area-3">
             <label for="">Email</label>
             <input type="email" formControlName="email" placeholder="Enter your email address" />
-            
+            <p *ngIf="form.get('email')!.invalid && form.get('email')!.touched">Field is required</p>
         </div>
-        <p *ngIf="form.get('email')!.invalid && form.get('email')!.touched">Field is required</p>
-        <div>
+        
+        <div class="area-4">
             <label for="">Phone number</label>
             <input type="text" formControlName="phone" placeholder="Enter your phone number" />
-           
+            <p *ngIf="form.get('phone')!.invalid && form.get('phone')!.touched">Field is required</p>
         </div>
-        <p *ngIf="form.get('phone')!.invalid && form.get('phone')!.touched">Field is required</p>
-        <div>
+        
+        <div class="area-5">
             <label for="">Discount code</label>
             <input type="text" formControlName="discount" placeholder="Enter your discount code (Not required)" />
         </div>
-        <button type="submit" [disabled]="form.invalid">Send</button>
+        <button class="area-6" type="submit" [disabled]="form.invalid">Send</button>
     </form>
 
     <div class="message" *ngIf="message">
@@ -43,3 +45,4 @@
 <ng-template #userDiscount>
     <app-order-by-registered-user [userId]="isLoggedIn" [selectedProducts]="products" [price]="total"></app-order-by-registered-user>
 </ng-template>
+
