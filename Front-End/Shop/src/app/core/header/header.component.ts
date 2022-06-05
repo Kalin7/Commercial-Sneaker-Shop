@@ -10,11 +10,12 @@ import { StorageService } from '../service/storage.service';
 export class HeaderComponent implements OnInit, DoCheck {
 
   
-
+  mobileView: boolean = true
   verticalPosition?: boolean = false;
   displayMenu?: boolean = false;
   isLoggedIn?: string;
   cartCounter: number = 0;
+  currentPrice: number = 0;
   constructor(
     private sCart: CartService,
     private sStorage: StorageService,
@@ -26,19 +27,27 @@ export class HeaderComponent implements OnInit, DoCheck {
   
   ngOnInit(): void {
     this.changeContent();
+    this.getView();
     this.cartCounter = this.sCart.getCounter();
+    this.currentPrice = this.sCart.totalPrice!;
     this.isLoggedIn = this.sStorage.getStorage()!;
   }
 
   @HostListener('window:click')
   changeContent() {
     this.cartCounter = this.sCart.getCounter();
+    this.currentPrice = this.sCart.totalPrice!;
   }
 
   @HostListener('window:scroll')
   getOffset() {
-    window.scrollY > 0 ? this.verticalPosition = true : [
-      this.verticalPosition = false, this.displayMenu = false];
+    window.scrollY > 0 ? this.verticalPosition = true : 
+      [this.verticalPosition = false, this.displayMenu = false];
+  }
+
+  @HostListener('window:resize')
+  getView() {
+    window.innerWidth > 768 ? this.mobileView = false : this.mobileView = true;
   }
   
   showMenu() {
@@ -49,4 +58,3 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.sStorage.clearStorage();
   }
 }
-
