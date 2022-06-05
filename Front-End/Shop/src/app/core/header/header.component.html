@@ -1,11 +1,11 @@
 <section class="header-section">
-    <nav class="navbar">
+    <nav class="navbar" *ngIf="mobileView; else standard">
         <div class="navbar-logo--container" *ngIf="!verticalPosition">
             <h1 class="logo">SHOP<span>SNEAKER</span></h1>
         </div>
         <div class="navbar-nav--container" *ngIf="verticalPosition">
-            <div class="nvbar-nav--items" >
-                <div class="nav menu">
+            <div class="nvbar-nav--items">
+                <div class="nav menu" *ngIf="mobileView">
                     <mat-icon aria-hidden="false" (click)="showMenu()">menu</mat-icon>
                 </div>
                 <div class="nav search">
@@ -19,15 +19,12 @@
                     <mat-icon aria-hidden="false" (click)="onLogout()">logout</mat-icon>
                 </div>
                 <div class="nav user-basket">
-                    <a routerLink="/cart">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
-                        <div class="cart-item--counter">
-                            <span class="counter">{{cartCounter}}</span>
-                        </div>
-                    </a>
-                    <span class="item">items: 0</span>
-                    <span class="item">/</span>
-                    <span class="item">value: 0.0</span>
+                    
+                    <mat-icon class="basket" routerLink="/cart" aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+                    <div class="cart-item--counter">
+                        <span class="counter">{{cartCounter}}</span>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -49,12 +46,57 @@
             </li>
         </ul>
     </nav>
-    <div class="header-text-container">
-        <ul class="text-list">
-            <li>Test and review before payment</li>
-            <li>All products are available</li>
-            <li>Free shippment for products over 100 lv</li>
-            <li>30 days return period</li>
-        </ul>
-    </div>
+    <ng-template #standard>
+        <nav class="navbar">
+            <div class="col-1 navbar-logo--container">
+                <h1 class="logo">SHOP<span>SNEAKER</span></h1>
+            </div>
+            <div class="col-2">
+            <ul class="nvabar-nav--list">
+                <li class="list-item">
+                    <a routerLink="/home">Home</a>
+                </li>
+                <li class="list-item">
+                    <a routerLink="/gender/mens">Men's</a>
+                </li>
+                <li class="list-item">
+                    <a routerLink="/gender/ladies">Ladies</a>
+                </li>
+                <li class="list-item">
+                    <a routerLink="/gender/children">Children</a>
+                </li>
+                <li class="list-item sale">
+                    <a routerLink="/sale">Sale</a>
+                </li>
+            </ul>
+            </div>
+            <div class="col-3 nav auth-container" *ngIf="!isLoggedIn">
+                <a routerLink="/auth/login">Login</a>
+                <a routerLink="/auth/register">Register</a>
+            </div>
+            <div class="col-3 logout" *ngIf="isLoggedIn">
+                <mat-icon aria-hidden="false" (click)="onLogout()">logout</mat-icon>
+            </div>
+            <div class="col-4 nav user-basket">
+           
+                <mat-icon routerLink="/cart" class="basket" aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+    
+                <span class="item">{{cartCounter}} it.</span>
+                <span class="item">/</span>
+                <span class="item">{{currentPrice}} BGN.</span>
+            </div>
+        </nav>
+        <div class="header-text-container">
+            <ul class="text-list">
+                <li><mat-icon aria-hidden="false">visibility</mat-icon>Test and review before payment</li>
+                
+                <li><mat-icon aria-hidden="false">done</mat-icon>All products are available</li>
+                
+                <li><mat-icon aria-hidden="false">drive_eta</mat-icon>Free shippment for products over 100 BGN</li>
+                
+                <li><mat-icon aria-hidden="false">autorenew</mat-icon>30 days return period</li>
+            </ul>
+        </div>
+    </ng-template>
 </section>
+
