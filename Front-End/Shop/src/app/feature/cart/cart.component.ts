@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.addProduct();
-    this.getTotalPrice();
+    this.totalPrice = this.sCart.totalPrice!;
   }
 
   addProduct () {
@@ -51,12 +51,6 @@ export class CartComponent implements OnInit {
     this.addedProducts.splice(i, 1);
     
     this.router.navigate(['/cart']);
-  }
-
-  getTotalPrice () {
-    this.addedProducts?.forEach((product:any) => {
-      this.totalPrice += product.price
-    });
   }
 
   onSubmit() {
