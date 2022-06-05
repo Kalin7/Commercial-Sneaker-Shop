@@ -10,13 +10,16 @@ export class CartService {
   selectedSize?: number[] = [];
   selectedColor: string[] = [];
   counter?: number;
+  totalPrice?: number = 0;
   isPurchase?: boolean = false;
   constructor() { }
 
   getSlectedProduct(product: any) {
     product.size = this.selectedSize!.pop();
     product.color = this.selectedColor!.pop();
+    this.totalPrice += product.price;
     this.selectedProducts?.push(product);
+    
   }
 
   getSelectedSize(size: any) {
@@ -31,4 +34,5 @@ export class CartService {
     this.counter = this.selectedProducts!.length;
     return this.counter;
   }
+
 }
