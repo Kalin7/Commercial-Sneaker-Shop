@@ -29,12 +29,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## API END POINTS
 
-http://lockalhost:3000/user/login;
-http://lockalhost:3000/user/register;
-http://lockalhost:3000/user/order;
-http://lockalhost:3000/user/ordder/discount-request;
-http://lockalhost:3000/user/:id;
+http://localhost:3000/user/login;
+http://localhost:3000/user/register;
+http://localhost:3000/user/order;
+http://localhost:3000/user/ordder/discount-request;
+http://localhost:3000/user/:id;
 
-http://lockalhost:3000/records;
-http://lockalhost:3000/record/:id/details;
+http://localhost:3000/records;
+http://localhost:3000/record/:id/details;
 
